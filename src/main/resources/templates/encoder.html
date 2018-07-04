@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{encoder.title}">BCrypt Encoder</title>
+</head>
+<body>
+<h1 th:text="#{encoder.title}">BCrypt Encoder</h1>
+<div>
+    <form th:action="@{/encoder}" method="post">
+        <p><h2 th:text="#{encoder.source.title}"></h2></p>
+        <p><textarea rows="20" cols="200" id="source" th:name="source" th:value="${encoder.source}" th:placeholder="#{encoder.source}"  title="source"></textarea></p>
+        <p><span th:text="#{encoder.round}">Max rounds</span><input type="number" id="rounds" min="1" max="12" th:name="rounds" th:value="${encoder.rounds}" title="rounds"></p>
+        <p><button type="submit" th:text="#{encoder.encode}"></button></p>
+    </form>
+</div>
+<div>
+    <p><h2 th:text="#{encoder.encoded}"></h2></p>
+    <textarea rows="20" cols="200" id="target" th:text="${encoder.target}"  title="target"></textarea>
+</div>
+
+</body>
+</html>
